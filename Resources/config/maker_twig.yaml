@@ -1,0 +1,19 @@
+services:
+    Tehla\ExtensionBundle\Component\MakerTwig\:
+        resource: '../../Component/MakerTwig/*'
+
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Tehla\ExtensionBundle\Component\MakerTwig\TwigFileManager:
+        decorates: 'maker.file_manager'
+        arguments:
+            - '@filesystem'
+            - '@maker.autoloader_util'
+            - '@maker.file_link_formatter'
+            - '%kernel.project_dir%'
+            - '%twig.default_path%'
+        calls:
+            - ['setDecorated', ['@maker.file_manager']]

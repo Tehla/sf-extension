@@ -1,0 +1,16 @@
+services:
+    Tehla\ExtensionBundle\Component\SchemaFilter\:
+        resource: '../../Component/SchemaFilter/*'
+
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+
+    Tehla\ExtensionBundle\Component\SchemaFilter\UpdateCommand:
+        tags: ['console.command']
+
+    Doctrine\Bundle\DoctrineBundle\Dbal\RegexSchemaAssetFilter: '@doctrine.dbal.default_regex_schema_filter'
+
+

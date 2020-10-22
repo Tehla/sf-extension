@@ -1,0 +1,15 @@
+services:
+    Tehla\ExtensionBundle\Component\MakerGenerator\:
+        resource: '../../Component/MakerGenerator/*'
+
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Tehla\ExtensionBundle\Component\MakerGenerator\UnprefixedGenerator:
+        decorates: 'maker.generator'
+        arguments: ['@maker.file_manager', '']
+        calls:
+            - ['setDecorated', ['@maker.generator']]
+

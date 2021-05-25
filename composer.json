@@ -4,7 +4,7 @@
     "type": "bundle",
     "license": "MIT",
     "require": {
-        "php": "7",
+        "php": "7.*",
         "doctrine/orm": "^2.4"
     },
     "require-dev": {
